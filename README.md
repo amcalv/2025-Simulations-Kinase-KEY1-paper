@@ -1,4 +1,10 @@
 Solves the 2D continuum model of unphosphorylated (sticky) and phosphorylated (non-sticky) EPYC1 in a geometry mimicking the shape of the Chlamydomonas chloroplast, using finite elements with no-flux boundary conditions. The system follows a three-component Flory–Huggins free energy describing EPYC1 and solvent interactions, and the switching rates between the two EPYC1 states are spatially uniform and depend only on time.
 
+In a geometry mimicking the Chlamydomonas shape, we carry out numerical simulations using the finite-element method. To this end, all the dimensionless equations are written in weak form by means of the corresponding integral scalar product, defined in terms of test functions for the sticky and nonsticky EPYC1 volume fractions. By using Green identities we obtain an integral bilinear system of equations for the set of variables and their corresponding test functions. The integral equations are discretized using second-order Lagrange polynomials in a triangular mesh for all variables. Regarding time stepping, we employ a fourth-order variable-step BDF method. The tolerance of the nonlinear method is always set below 10−5.
+
+To solve the system of equations numerically in a geometry mimicking the Chlamydomonas shape, we use the finite-element software COMSOL. Version 5.4 or newer is required to run the file “model_EPYC1_chlamy_shape_nowetting_2025_02_27.mph.” To solve the system in a square geometry with periodic boundary conditions, we use MATLAB to run the script “EPYC_square_periodic.m.”
+
 For more details, see:
 He, S., Lemma, L. M., Martinez-Calvo, A., He, G., Hennacy, J. H., Wang, L., ... & Jonikas, M. C. (2025). Kinase KEY1 controls pyrenoid condensate size throughout the cell cycle by disrupting phase separation interactions. bioRxiv, 2025-10.
+
+Martínez-Calvo, Alejandro, et al. "Sticky enzymes: increased metabolic efficiency via substrate-dependent enzyme clustering." PRX Life 3.3 (2025): 033011.
