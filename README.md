@@ -4,6 +4,8 @@ In a geometry mimicking the Chlamydomonas shape, we carry out numerical simulati
 
 To solve the system of equations numerically in a geometry mimicking the Chlamydomonas shape, we use the finite-element software COMSOL. Version 5.4 or newer is required to run the file “model_EPYC1_chlamy_shape_nowetting_2025_02_27.mph.” To solve the system in a square geometry with periodic boundary conditions, we use MATLAB to run the script “EPYC_square_periodic.m.”
 
+The Matlab code "simp_condensate.m" solves the nonlinear ODE given by Eq. (15) in the Supplementary Material.
+
 For more details, see:
 He, S., Lemma, L. M., Martinez-Calvo, A., He, G., Hennacy, J. H., Wang, L., ... & Jonikas, M. C. (2025). Kinase KEY1 controls pyrenoid condensate size throughout the cell cycle by disrupting phase separation interactions. bioRxiv, 2025-10.
 
