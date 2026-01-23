@@ -3,8 +3,11 @@ close all
 clc
 
 % Alejandro M. Calvo  
-% Solves the three-component mixture Model B dynamics, i.e. conservation eq.
-% of the volume fraction phi, considering the Flory-Huggins free energy density
+% Numerically solves the three-component mixture of sticky and non-sticky EPYC1 and solvent,
+% i.e. conservation eqs. of the volume fraction phi_s and phi_ns,
+% considering the Flory-Huggins free energy density. We use second-order finite differences to discretize 
+% the spatial derivatives and the built-in time-adaptive ode-solve ode45 to integrate the discretized system
+% of equations in time. The output in this file is a colormap of sticky EPYC1 volume fraction over time
 
 % Parameters
 L      = 25;  % Domain length (square domain)
