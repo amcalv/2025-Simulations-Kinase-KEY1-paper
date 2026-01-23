@@ -1,1 +1,6 @@
-Solves the 2D continuum model of unphosphorylated (sticky) and phosphorylated (non-sticky) EPYC1 in a geometry mimicking the shape of the Chlamydomonas chloroplast, using finite differences with periodic boundary conditions. The system follows a three-component Flory–Huggins free energy describing EPYC1 and solvent interactions, and the switching rates between the two EPYC1 states are spatially uniform and depend only on time.
+The Matlab code "EPYC_square_periodic.m" numerically solves the 2D continuum model of unphosphorylated (sticky) and phosphorylated (non-sticky) EPYC1 in a geometry mimicking the shape of
+the Chlamydomonas chloroplast, using finite differences with periodic boundary conditions. The system follows a three-component Flory–Huggins
+free energy describing EPYC1 and solvent interactions, and the switching rates between the two EPYC1 states are spatially uniform and depend
+only on time.
+
+The Matlab code "simp_condensate.m" solves the nonlinear ODE given by Eq. (15) in the Supplementary Material.
