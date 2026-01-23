@@ -2,11 +2,9 @@ The file “model_EPYC1_chlamy_shape_nowetting_2025_02_27.mph.", numerically sol
 
 In a geometry mimicking the Chlamydomonas shape, we carry out numerical simulations using the finite-element method. To this end, all the dimensionless equations are written in weak form by means of the corresponding integral scalar product, defined in terms of test functions for the sticky and nonsticky EPYC1 volume fractions. By using Green identities we obtain an integral bilinear system of equations for the set of variables and their corresponding test functions. The integral equations are discretized using second-order Lagrange polynomials in a triangular mesh for all variables. Regarding time stepping, we employ a fourth-order variable-step BDF method. The tolerance of the nonlinear method is always set below 10−5.
 
-To solve the system of equations numerically in a geometry mimicking the Chlamydomonas shape, we use the finite-element software COMSOL. Version 5.4 or newer is required to run the file “model_EPYC1_chlamy_shape_nowetting_2025_02_27.mph.”
+To solve the system of equations numerically in a geometry mimicking the Chlamydomonas shape, we use the finite-element software COMSOL. Version 5.4 or newer is required to run the file “model_EPYC1_chlamy_shape_nowetting_2025_02_27.mph.” See the COMSOL documentation for installation instructions to open this file. From COMSOL, we export the total volume fraction of EPYC1 as a 2D matrix at different time points, which is then used to generate plots with the open-source software Veusz and movies in MATLAB.
 
-The Matlab code "simp_condensate.m" solves the nonlinear ODE given by Eq. (15) in the Supplementary Material.
-
-For more details, see:
+For more details about the model and weak formulation, see:
 He, S., Lemma, L. M., Martinez-Calvo, A., He, G., Hennacy, J. H., Wang, L., ... & Jonikas, M. C. (2025). Kinase KEY1 controls pyrenoid condensate size throughout the cell cycle by disrupting phase separation interactions. bioRxiv, 2025-10.
 
 Martínez-Calvo, Alejandro, et al. "Sticky enzymes: increased metabolic efficiency via substrate-dependent enzyme clustering." PRX Life 3.3 (2025): 033011.
