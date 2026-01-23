@@ -9,6 +9,9 @@ clc
 % the spatial derivatives and the built-in time-adaptive ode-solve ode45 to integrate the discretized system
 % of equations in time. The output in this file is a colormap of sticky EPYC1 volume fraction over time
 
+% If I want write a movie file == 1
+qmovie = 0;
+
 % Parameters
 L      = 25;  % Domain length (square domain)
 Nx     = 100; % Number of grid points in x
@@ -32,11 +35,12 @@ map = uint8(flipud([136 8   0
                     246 168 131
                     243 215 185]));
 
-% Set up and writing the movie.
-writerObj = VideoWriter('video_coacervation','MPEG-4'); % movie name.
-writerObj.FrameRate = 15; % Frames per second. Larger number correlates to smaller movie time duration. 
-open(writerObj);
-
+if qmovie == 1
+  % Set up and writing the movie.
+  writerObj = VideoWriter('video_coacervation','MPEG-4'); % movie name.
+  writerObj.FrameRate = 15; % Frames per second. Larger number correlates to smaller movie time duration. 
+  open(writerObj);
+end
 
 % Initial conditions
 phi_s0  = 0.4 + 0.05*rand(Nx,Ny);
@@ -85,14 +89,16 @@ drawnow
 
 display(['Time t = ' num2str(vt(i))])
 
-frame = getframe(gcf); % 'gcf' can handle if you zoom in to take a movie.
-writeVideo(writerObj, frame);
-
+if qmovie == 1
+  frame = getframe(gcf); % 'gcf' can handle if you zoom in to take a movie.
+  writeVideo(writerObj, frame);
+end
 
 end
 
-
-close(writerObj);% Saves the movie
+if qmovie == 1
+  close(writerObj);% Saves the movie
+end
 
 % Laplacian discretization
 function lap = laplacian(v,dx,dy)
