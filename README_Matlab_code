@@ -1,6 +1,12 @@
-The Matlab code "EPYC_square_periodic.m" numerically solves the 2D continuum model of unphosphorylated (sticky) and phosphorylated (non-sticky) EPYC1 in a geometry mimicking the shape of
-the Chlamydomonas chloroplast, using finite differences with periodic boundary conditions. The system follows a three-component Flory–Huggins
-free energy describing EPYC1 and solvent interactions, and the switching rates between the two EPYC1 states are spatially uniform and depend
-only on time.
+The Matlab code "EPYC_square_periodic.m" numerically solves the 2D continuum model of unphosphorylated (sticky) and phosphorylated (non-sticky) 
+EPYC1 in a geometry mimicking the shape of the Chlamydomonas chloroplast, using finite differences with periodic boundary conditions.
+The system follows a three-component Flory–Huggins free energy describing EPYC1 and solvent interactions, and the switching rates between
+the two EPYC1 states are spatially uniform and depend only on time. We use MATLAB’s built-in ODE library—specifically the time-adaptive
+solver ode45—to integrate the discretized system of equations in time. The output is visualized as a colormap showing the concentration 
+of sticky EPYC1. No additional MATLAB toolboxes are required to run the code.
 
-The Matlab code "simp_condensate.m" solves the nonlinear ODE given by Eq. (15) in the Supplementary Material.
+simp_condensate.m solves the nonlinear, dimensionless ODE given by Eq. (15) in the Supplementary Material. This equation arises from a
+simplified model that considers only two EPYC1 components: sticky and non-sticky, with a switching rate between the two states. Assuming
+that the condensate radius evolves much more slowly than EPYC1 diffusion and switching processes, the model reduces to a nonlinear ODE
+governing the effective condensate radius. This ODE is integrated numerically using MATLAB’s built-in time-adaptive solver ode45.
+The output of the code is the dimensionless condensate radius as a function of time.
