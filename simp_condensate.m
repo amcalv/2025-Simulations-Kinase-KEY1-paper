@@ -1,17 +1,33 @@
 clear all
-%close all
+close all
 clc
 
+% simp_condensate.m solves the nonlinear, dimensionless ODE given by
+% Eq. (15) in the Supplementary Material.
+
+% This equation arises from a simplified model that considers only two
+% EPYC1 components: sticky and non-sticky, with a switching rate between
+% the two states.
+
+% Assuming that the condensate radius evolves much more slowly than
+% EPYC1 diffusion and switching processes, the model reduces to a
+% nonlinear ODE governing the effective condensate radius.
+
+% This ODE is integrated numerically using MATLAB’s built-in time-adaptive
+% solver ode45. The output of the code is the dimensionless condensate
+% radius as a function of time.
+
+% Save solution, qsave == 1
 qsave = 0;
 
-k      = 0.7;
-phi_p  = 1;
-phi_m  = 0;
-Rinit  = 1;
+k      = 0.7; % Dimensionless switching rate, normalized by enzyme diffusion rate
+phi_p  = 1;   % Sticky EPYC1 volume fraction in the dense phase 
+phi_m  = 0;   % Sticky EPYC1 volume fraction in the dilute phase 
+Rinit  = 1;   % Dimensionless initial radius of the condensate
 
-kcrit = (phi_p+phi_m)/(2-(phi_p+phi_m))
+kcrit = (phi_p+phi_m)/(2-(phi_p+phi_m))  % Critical dimensionless switching rate delimiting size control vs coarsening
 
-Rss   = (3*k*(1 + k) + sqrt(3)*sqrt(k*(1 + k)^2*(4 + 3*k)))/(2*(1 + k)^(3/2))
+Rss   = (3*k*(1 + k) + sqrt(3)*sqrt(k*(1 + k)^2*(4 + 3*k)))/(2*(1 + k)^(3/2)) % Analytical steady-state radius of the condensate in the size control region
 
 vt = 0:0.4:50;
 y0 = Rinit;
